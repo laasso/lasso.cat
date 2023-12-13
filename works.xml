@@ -1,0 +1,23 @@
+<!DOCTYPE works SYSTEM "myWebsite.dtd">
+<works>
+    <work>
+        <title>Proyecto de E-Commerce</title>
+        <description>Desarrollé un sitio web de comercio electrónico utilizando tecnologías modernas como React.js y Node.js. La plataforma permite a los usuarios comprar productos, gestionar carritos y realizar pagos en línea.</description>
+        <technologies>
+            <technology>React.js</technology>
+            <technology>Node.js</technology>
+            <technology>Express.js</technology>
+        </technologies>
+    </work>
+    <work>
+        <title>Blog Personal</title>
+        <description>Creé un blog personal donde comparto mi conocimiento sobre desarrollo web y tecnología. Utilicé WordPress como plataforma y personalicé el diseño y la funcionalidad según mis necesidades.</description>
+        <technologies>
+            <technology>WordPress</technology>
+            <technology>PHP</technology>
+            <technology>MySQL</technology>
+        </technologies>
+    </work>
+    <!-- Agrega más proyectos según sea necesario -->
+</works>
+

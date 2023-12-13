@@ -1,0 +1,18 @@
+<!DOCTYPE about SYSTEM "myWebsite.dtd">
+<?xml-stylesheet type="text/css" href="styles.css"?>
+<about>
+    <name>John Doe</name>
+    <description>Soy un apasionado desarrollador web con experiencia en tecnologías front-end y back-end. Mi objetivo es crear soluciones innovadoras y centradas en el usuario.</description>
+    <education>
+        <degree>Grado en Informática</degree>
+        <university>Universidad Imaginaria</university>
+        <year>2020</year>
+    </education>
+    <skills>
+        <skill>HTML5</skill>
+        <skill>CSS3</skill>
+        <skill>JavaScript</skill>
+        <!-- Agrega más habilidades según sea necesario -->
+    </skills>
+</about>
+

@@ -1,0 +1,11 @@
+<!DOCTYPE contact SYSTEM "myWebsite.dtd">
+<contact>
+    <email>john.doe@example.com</email>
+    <phone>123-456-7890</phone>
+    <social>
+        <twitter>@johndoe</twitter>
+        <linkedin>linkedin.com/in/johndoe</linkedin>
+        <!-- Agrega más enlaces a redes sociales según sea necesario -->
+    </social>
+</contact>
+

@@ -1,0 +1,62 @@
+<!-- index.html -->
+
+<!DOCTYPE html>
+<html lang="ca">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="styles.css">
+    <title>El teu Nom - Pàgina Principal</title>
+</head>
+<body>
+    <header>
+        <h1>Benvinguts a la meva pàgina</h1>
+    </header>
+    <nav>
+        <ul>
+            <li><a href="#" onclick="loadXML('about.xml')">Sobre Mi</a></li>
+            <li><a href="#" onclick="loadXML('works.xml')">Treballs</a></li>
+            <li><a href="#" onclick="loadXML('contact.xml')">Contacte</a></li>
+        </ul>
+    </nav>
+    <section id="content">
+        <!-- Contenido principal aquí -->
+    </section>
+    <footer>
+        <p>Contacte: <a href="#" onclick="loadXML('contact.xml')">Enllaç de contacte</a></p>
+    </footer>
+
+    <script>
+        function loadXML(file) {
+            var xhttp = new XMLHttpRequest();
+            xhttp.onreadystatechange = function() {
+                if (this.readyState == 4 && this.status == 200) {
+                    parseXML(this.responseText);
+                }
+            };
+            xhttp.open("GET", file, true);
+            xhttp.send();
+        }
+
+        function parseXML(xmlString) {
+            var parser = new DOMParser();
+            var xmlDoc = parser.parseFromString(xmlString, "text/xml");
+            var contentElement = document.getElementById("content");
+            contentElement.innerHTML = xmlToString(xmlDoc);
+        }
+
+        function xmlToString(xmlData) {
+            var xmlString;
+            // code for IE
+            if (window.ActiveXObject) {
+                xmlString = xmlData.xml;
+            } else {
+                // code for Chrome, Firefox, Opera, etc.
+                xmlString = new XMLSerializer().serializeToString(xmlData);
+            }
+            return xmlString;
+        }
+    </script>
+</body>
+</html>
+
