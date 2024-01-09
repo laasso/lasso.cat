@@ -8,15 +8,17 @@ body {
     min-height: 100vh; /* Asegura que el cuerpo ocupa al menos la altura completa de la ventana */
     display: flex;
     flex-direction: column;
+    background-image: url(wallhaven-wew5x6_1920x1080.png);
 
 }
 
 h1 {
-    font-family: 'VT323', monospace;
+    font-family: 'Press Start 2P', system-ui;
     text-align: center;
     margin: 0;
     padding: 0;
-    font-size: 50px;
+    font-size: 30px;
+    color: rgb(247, 0, 0);
 
 }
 
@@ -68,9 +70,25 @@ footer {
     align-items: center;
     height: 100%;
     width: 100% ;
+    padding: 15px;
+    
 }
 
 .center-image img {
     max-width: 100%;
     max-height: 100%;
+}
+
+.logo {
+    font-family: 'Press Start 2P', system-ui;
+    font-size:30px;
+    color: black;
+    text-align: left;
+    justify-content: left;
+}
+
+.subt {
+    font-size: 14px;
+    align-items: right;
+    padding-bottom: 30px;
 }
