@@ -1,0 +1,23 @@
+/* Estilos generales */
+body {
+    font-family: monaco,Consolas,Lucida Console,monospace; 
+    text-align: center;
+    margin: 0;
+    padding: 0;
+}
+
+header, nav, section, footer {
+    margin: 20px;
+}
+
+/* Estilos para la navegación */
+nav ul {
+    list-style: none;
+}
+
+nav ul li {
+    display: inline;
+    margin-right: 20px;
+}
+
+/* Otros estilos según sea necesario */
