@@ -1,35 +1,21 @@
-/* Estilos generales */
+/* General Styles */
 body {
-    
     font-family: monospace;
     text-align: center;
     margin: 0;
     padding: 0;
-    min-height: 100vh; /* Asegura que el cuerpo ocupa al menos la altura completa de la ventana */
+    min-height: 100vh;
     display: flex;
     flex-direction: column;
     background-image: url(wallhaven-wew5x6_1920x1080.png);
-
 }
 
-h1 {
-    font-family: 'Press Start 2P', system-ui;
-    text-align: center;
-    margin: 0;
-    padding: 0;
-    font-size: 50px;
-    color: rgb(255, 255, 255);
-    text-shadow: rgb(0, 0, 0) 0.1em 0.1em 0.2em
-
-}
-
-
+/* Header Styles */
 header {
     background-color: #f0f0f0;
     padding: 20px;
 }
 
-/* Estilos para la navegación */
 nav ul {
     list-style: none;
     margin: 0;
@@ -47,13 +33,13 @@ nav a {
     font-size: 16px;
 }
 
-/* Estilos para el contenido de la página de inicio */
+/* Main Content Styles */
 section {
     margin-top: 20px;
-    flex-grow: 1; /* Hace que el contenido ocupe el espacio restante */
+    flex-grow: 1;
 }
 
-/* Estilos para el pie de página */
+/* Footer Styles */
 footer {
     background-color: #f0f0f0;
     padding: 10px;
@@ -65,31 +51,47 @@ footer {
     color: #555;
 }
 
+/* Principal Text Styles */
 .principal-text {
     display: flex;
+    flex-direction: column;
     justify-content: center;
     align-items: center;
     height: 100%;
-    width: 100% ;
     padding: 15px;
-    
-}
-
-.principal-text img {
-    max-width: 100%;
-    max-height: 100%;
 }
 
 .logo {
+    max-width: 100%;
+    height: auto;
+    margin-right: 20px;
+}
+/* Heading Styles */
+h1 {
     font-family: 'Press Start 2P', system-ui;
-    font-size:30px;
-    color: black;
-    text-align: left;
-    justify-content: left;
+    text-align: center;
+    margin: 0;
+    padding: 0;
+    font-size: 50px;
+    color: rgb(255, 255, 255);
+    text-shadow: rgb(0, 0, 0) 0.1em 0.1em 0.2em;
 }
 
+/* Subtitle Styles */
 .subt {
-    font-size: 14px;
-    align-items: right;
-    padding-bottom:35px;
+    font-size: 15px;
+    color: red;
+}
+
+/* Responsive Styles */
+@media only screen and (max-width: 768px) {
+    /* Adjust styles for smaller screens */
+    h1 {
+        font-size: 30px;
+    }
+
+    nav ul li {
+        display: block;
+        margin: 10px 0;
+    }
 }
