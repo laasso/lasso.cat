@@ -1,17 +1,22 @@
 <!DOCTYPE about SYSTEM "myWebsite.dtd">
 <?xml-stylesheet type="text/css" href="styles.css"?>
 <about>
-    <name>John Doe</name>
-    <description>Soy un apasionado desarrollador web con experiencia en tecnologías front-end y back-end. Mi objetivo es crear soluciones innovadoras y centradas en el usuario.</description>
+    <name>Nicolas Rubiales Guerrero</name>
+    <description>
+        I'm an enthusiastic 18-year-old student currently enrolled in the Advanced Vocational Training Program for Systems Administration of Microcomputer Systems and Networks. My passion for technology and computing has propelled me into this exciting educational journey.
+
+        From a young age, I've harbored an innate curiosity about how computer systems function and how they interconnect to form the global network that defines our current world. Choosing to study Systems Administration of Microcomputer Systems and Networks is not just an academic decision but an expression of my desire to delve into the intricate details underpinning technological infrastructure.
+    </description>
     <education>
-        <degree>Grado en Informática</degree>
-        <university>Universidad Imaginaria</university>
-        <year>2020</year>
+        <title>Education</title>
+        <university>Institut Manuel Vazquez Montalban</university>
+        <year>2023-2024</year>
     </education>
     <skills>
-        <skill>HTML5</skill>
-        <skill>CSS3</skill>
-        <skill>JavaScript</skill>
+        <title>Skills</title>
+        <skill>HTML</skill>
+        <skill>CSS</skill>
+        <skill>Python</skill>
         <!-- Agrega más habilidades según sea necesario -->
     </skills>
 </about>
