@@ -1,0 +1,33 @@
+about {
+    font-family: Arial, sans-serif;
+    margin: 0 15%;
+    padding: 20px;
+    background-color: white;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+  }
+  
+  about * {
+    box-sizing: border-box;
+  }
+  
+  about > * {
+    margin-bottom: 20px;
+  }
+  
+  about h1, about h2 {
+    font-weight: normal;
+    color: #333;
+  }
+  
+  about p {
+    line-height: 1.5;
+  }
+  
+  about a {
+    color: #0066cc;
+    text-decoration: none;
+  }
+  
+  about a:hover {
+    text-decoration: underline;
+  }

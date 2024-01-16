@@ -1,18 +1,20 @@
 <!DOCTYPE about SYSTEM "myWebsite.dtd">
-<?xml-stylesheet type="text/css" href="styles.css"?>
+<?xml-stylesheet type="text/css" href="styles_xml.css"?>
 <about>
-    <name>John Doe</name>
-    <description>Soy un apasionado desarrollador web con experiencia en tecnologías front-end y back-end. Mi objetivo es crear soluciones innovadoras y centradas en el usuario.</description>
-    <education>
-        <degree>Grado en Informática</degree>
-        <university>Universidad Imaginaria</university>
-        <year>2020</year>
-    </education>
+    <name>Nicolas "lasso" Rubiales</name>
+    <position>Founder and Developer</position>
     <skills>
-        <skill>HTML5</skill>
-        <skill>CSS3</skill>
-        <skill>JavaScript</skill>
-        <!-- Agrega más habilidades según sea necesario -->
+        <skill>Python</skill>
+        <skill>Backend/Frontend</skill>
     </skills>
+    <experience>
+        <place>Fractalia Systems</place>
+            <role>HelpDesk Technician</role>
+    </experience>
+    <studies>
+        <study>ASIX</study>
+        <study>SMX</study>
+    </studies>
+    <description>I'm 18 years old programmer from Barcelona, mostly interested in web developement. Currently I'm studying Administration of Networks at Manuel Vazquez Montallban.</description>
 </about>
 

@@ -11,10 +11,18 @@ body {
 }
 
 /* Header Styles */
-header {
-    background-color: #f0f0f0;
-    padding: 20px;
+header{
+    display: flex;
+    justify-content: space-between;
+    background-color: white;
+    align-items: center;
+    padding: 10px;
+    width: 100%;
+    top: 0;
+    position: fixed;
 }
+
+
 
 nav ul {
     list-style: none;
