@@ -1,33 +1,78 @@
+/* Apply general styling to the entire page */
 about {
-    font-family: Arial, sans-serif;
-    margin: 0 15%;
-    padding: 20px;
-    background-color: white;
-    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+    font-family: 'Arial', sans-serif;
+    margin: 20px;
+    background-color: black;
   }
   
-  about * {
-    box-sizing: border-box;
-  }
-  
-  about > * {
+  /* Style each person's container */
+  person {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
     margin-bottom: 20px;
+    padding: 20px;
+    border: 1px solid #ddd;
+    border-radius: 100px;
+    color: white;
   }
   
-  about h1, about h2 {
-    font-weight: normal;
-    color: #333;
+  /* Style person's name */
+  name {
+    font-size: 1.2em;
+    font-weight: bold;
+    margin-bottom: 10px;
   }
   
-  about p {
-    line-height: 1.5;
+  /* Style the position */
+  position {
+    font-style: italic;
+    color: #555;
+    margin-bottom: 15px;
   }
   
-  about a {
-    color: #0066cc;
-    text-decoration: none;
+  /* Style the skills section */
+  skills {
+    margin-bottom: 15px;
   }
   
-  about a:hover {
-    text-decoration: underline;
+  skill {
+    background-color: red;
+    color: #fff;
+    padding: 3px 6px;
+    margin-right: 5px;
+    margin-bottom: 5px;
+    display: inline-block;
+    border-radius: 3px;
   }
+  
+  /* Style the experience section */
+  experience {
+    margin-bottom: 15px;
+  }
+  
+  place {
+    font-weight: bold;
+  }
+  
+  role {
+    margin-bottom: 5px;
+  }
+  
+  /* Style the studies section */
+  studies {
+    margin-bottom: 15px;
+  }
+  
+  study {
+    margin-right: 5px;
+  }
+  
+  /* Style the description */
+  description {
+    margin-bottom: 10px;
+    margin-right: 100px;
+    margin-left: 100px ;
+    align-items: center;
+  }
+  

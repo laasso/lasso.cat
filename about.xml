@@ -1,20 +1,43 @@
 <!DOCTYPE about SYSTEM "myWebsite.dtd">
 <?xml-stylesheet type="text/css" href="styles_xml.css"?>
 <about>
+  <person>
     <name>Nicolas "lasso" Rubiales</name>
     <position>Founder and Developer</position>
     <skills>
-        <skill>Python</skill>
-        <skill>Backend/Frontend</skill>
+      <skill>Python</skill>
+      <skill>Backend/Frontend</skill>
     </skills>
     <experience>
-        <place>Fractalia Systems</place>
-            <role>HelpDesk Technician</role>
+      <place>Fractalia Systems</place>
+      <role>HelpDesk Technician</role>
     </experience>
     <studies>
-        <study>ASIX</study>
-        <study>SMX</study>
+      <study>ASIX</study>
+      <study>SMX</study>
     </studies>
-    <description>I'm 18 years old programmer from Barcelona, mostly interested in web developement. Currently I'm studying Administration of Networks at Manuel Vazquez Montallban.</description>
+    <description>I'm 18 years old programmer from Barcelona, mostly interested in web development. Currently, I'm studying Administration of Networks at Manuel Vazquez Montallban.</description>
+  </person>
+  
+  <person>
+    <name>Iker Macias Jurado</name>
+    <position>Co-founder</position>
+    <skills>
+      <skill>Python</skill>
+      <skill>Network Administration</skill>
+      <skill>Virtualization</skill>
+      <skill>Security Practices</skill>
+    </skills>
+    <experience>
+      <place>MediaMarkt</place>
+      <role>Teleoperator</role>
+      <place>Factorenergia</place>
+      <role>Teleoperator</role>
+    </experience>
+    <studies>
+      <study>ASIX</study>
+      <study>SMX</study>
+    </studies>
+    <description>I'm Iker, a 19-year-old enthusiast about technology currently pursuing studies in ASIX (Administration of Computer Systems on Networks). </description>
+    </person>
 </about>
-
