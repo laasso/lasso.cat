@@ -75,4 +75,11 @@ about {
     margin-left: 100px ;
     align-items: center;
   }
-  
+  foto2{
+    display:flex;
+    width:100px;
+    height:150px;
+    }
+    #foto2{
+    background-image: url("lasso.jpg");
+    }

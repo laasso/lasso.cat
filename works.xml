@@ -1,23 +1,74 @@
 <!DOCTYPE works SYSTEM "myWebsite.dtd">
+<?xml-stylesheet type="text/css" href="styles_xml_works.css"?>
 <works>
-    <work>
-        <title>Proyecto de E-Commerce</title>
-        <description>Desarrollé un sitio web de comercio electrónico utilizando tecnologías modernas como React.js y Node.js. La plataforma permite a los usuarios comprar productos, gestionar carritos y realizar pagos en línea.</description>
-        <technologies>
-            <technology>React.js</technology>
-            <technology>Node.js</technology>
-            <technology>Express.js</technology>
-        </technologies>
-    </work>
-    <work>
-        <title>Blog Personal</title>
-        <description>Creé un blog personal donde comparto mi conocimiento sobre desarrollo web y tecnología. Utilicé WordPress como plataforma y personalicé el diseño y la funcionalidad según mis necesidades.</description>
-        <technologies>
-            <technology>WordPress</technology>
-            <technology>PHP</technology>
-            <technology>MySQL</technology>
-        </technologies>
-    </work>
-    <!-- Agrega más proyectos según sea necesario -->
+  <work>
+    <name>Nicolas "lasso" Rubiales</name>
+    <subject>PAX</subject>
+    <work_name>Network Design</work_name>
+    <description>Design a network for a high school class</description>
+  </work>
+ 
+  <work>
+    <name>Nicolas "lasso" Rubiales</name>
+    <subject>Programming</subject>
+    <work_name>Calculator</work_name>
+    <description>Create a calculator that can: add, subtract, multiply, and divide</description>
+  </work>
+ 
+  <work>
+    <name>Nicolas "lasso" Rubiales</name>
+    <subject>ISO</subject>
+    <work_name>Resource Sharing</work_name>
+    <description>Enable resource sharing from Windows to Ubuntu and vice versa</description>
+  </work>
+ 
+  <work>
+    <name>Nicolas "lasso" Rubiales</name>
+    <subject>Database</subject>
+    <work_name>Relational Schema</work_name>
+    <description>Create a relational schema based on a provided statement</description>
+  </work>
+ 
+  <work>
+    <name>Nicolas "lasso" Rubiales</name>
+    <subject>LM</subject>
+    <work_name>XML Portfolio</work_name>
+    <description>Create a portfolio using XML</description>
+  </work>
+ 
+  <work>
+    <name>Iker Macias Jurado</name>
+    <work_name>Pizzeria</work_name>
+    <subject>Programming</subject>
+    <description>Create a pizzeria system that asks the user for pizza preferences, chosen ingredients, additional extras, and saves the order in a ticket</description>
+  </work>
+ 
+  <work>
+    <name>Iker Macias Jurado</name>
+    <work_name>Ubuntu Server</work_name>
+    <subject>ISO</subject>
+    <description>Create a server with the following services: Router, DHCP, DNS, LDAP</description>
+  </work>
+ 
+  <work>
+    <name>Iker Macias Jurado</name>
+    <work_name>Dual Boot</work_name>
+    <subject>ISO</subject>
+    <description>Create a dual boot system with Ubuntu and Windows</description>
+  </work>
+ 
+  <work>
+    <name>Iker Macias Jurado</name>
+    <work_name>Database</work_name>
+    <subject>Database</subject>
+    <description>Create a database from scratch with the provided data</description>
+  </work>
+ 
+  <work>
+    <name>Iker Macias Jurado</name>
+    <work_name>Script</work_name>
+    <subject>FM</subject>
+    <description>Create a script that performs incremental backups every Friday at 22:55</description>
+  </work>
 </works>
 

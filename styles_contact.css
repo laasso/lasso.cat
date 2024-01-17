@@ -9,6 +9,7 @@ body {
     flex-direction: column;
     background-color: black;
     background-size: cover;
+    color: white; /* Letras blancas */
 }
 
 /* Header Styles */
@@ -55,6 +56,7 @@ footer {
 
 /* Principal Text Styles */
 .principal-text {
+    color: white;
     display: flex;
     flex-direction: column;
     justify-content: center;
@@ -68,15 +70,17 @@ footer {
     height: auto;
     margin-right: 20px;
 }
+
 /* Heading Styles */
 h1 {
     font-family: 'Press Start 2P', system-ui;
-    text-align: center;
+    text-align: top;
     margin: 0;
     padding: 0;
     font-size: 50px;
     color: rgb(255, 255, 255);
     text-shadow: rgb(0, 0, 0) 0.1em 0.1em 0.2em;
+    margin-bottom: 70px;
 }
 
 /* Subtitle Styles */
@@ -96,4 +100,58 @@ h1 {
         display: block;
         margin: 10px 0;
     }
+}
+
+/* Form and Map Styles */
+.contact-container {
+    display: flex;
+}
+
+.form-container,
+.map-container {
+    width: 50%;
+    padding: 20px;
+    box-sizing: border-box;
+}
+
+.form-container {
+    text-align: left;
+    border-right: 2px solid white; /* Línea vertical entre el formulario y el mapa */
+}
+
+.map-container {
+    text-align: left;
+}
+
+/* Form Styles */
+form {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+form label {
+    font-size: 15px;
+    margin-bottom: 8px;
+}
+
+form input {
+    width: 100%;
+    padding: 10px;
+    margin-bottom: 15px;
+    box-sizing: border-box;
+}
+
+form button {
+    background-color:red;
+    color: white;
+    padding: 10px 20px;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    font-size: 16px;
+}
+
+form button:hover {
+    background-color: rgb(187, 20, 20);
 }
