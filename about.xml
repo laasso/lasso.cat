@@ -3,6 +3,7 @@
 <about>
   <person>
     <name>Nicolas "lasso" Rubiales</name>
+    <foto2 id="foto2"></foto2>
     <position>Founder and Developer</position>
     <skills>
       <skill>Python</skill>

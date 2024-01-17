@@ -75,11 +75,15 @@ about {
     margin-left: 100px ;
     align-items: center;
   }
-  foto2{
-    display:flex;
-    width:100px;
-    height:150px;
-    }
-    #foto2{
-    background-image: url("lasso.jpg");
-    }
+
+  
+  #foto2 {
+    display: flex;
+    width: 100px;
+    height: 150px;
+    align-items: center;
+    background-image: url("2023-04-28 Nico-1-1(2).jpg");
+    background-size: contain; /* Ajusta según sea necesario */
+    background-repeat: no-repeat;
+    background-position: center center;
+}
