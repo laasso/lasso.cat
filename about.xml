@@ -24,6 +24,7 @@
   <person>
     <name>Iker Macias Jurado</name>
     <position>Co-founder</position>
+    <foto3 id="foto3"></foto3>
     <skills>
       <skill>Python</skill>
       <skill>Network Administration</skill>
@@ -32,7 +33,7 @@
     </skills>
     <experience>
       <place>MediaMarkt</place>
-      <role>Teleoperator</role>
+      <role>Seller</role>
       <place>Factorenergia</place>
       <role>Teleoperator</role>
     </experience>
