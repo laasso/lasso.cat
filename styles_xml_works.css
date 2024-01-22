@@ -5,6 +5,10 @@ works {
     color: white;
 }
 
+person {
+    font-size: 30px;
+}
+
 work {
     display: flex;
     flex-direction: column;
@@ -44,38 +48,3 @@ description {
 works work description {
     text-align: center;
 }
-
-skills {
-    margin-bottom: 15px;
-}
-
-skill {
-    background-color: red;
-    color: #fff;
-    padding: 3px 6px;
-    margin-right: 5px;
-    margin-bottom: 5px;
-    display: inline-block;
-    border-radius: 3px;
-}
-
-experience {
-    margin-bottom: 15px;
-}
-
-place {
-    font-weight: bold;
-}
-
-role {
-    margin-bottom: 5px;
-}
-
-studies {
-    margin-bottom: 15px;
-}
-
-study {
-    margin-right: 5px;
-}
-    
