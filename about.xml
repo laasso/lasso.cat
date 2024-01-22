@@ -1,4 +1,4 @@
-<!DOCTYPE about SYSTEM "myWebsite.dtd">
+<!DOCTYPE about SYSTEM "about.dtd">
 <?xml-stylesheet type="text/css" href="styles_xml.css"?>
 <about>
   <person>

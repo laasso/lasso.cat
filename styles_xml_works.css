@@ -1,12 +1,10 @@
-/* Estilos generales de la página de trabajos */
 works {
-    font-family: 'Arial', sans-serif;
+    font-family: monospace;
     margin: 20px;
     background-color: black;
     color: white;
 }
 
-/* Estilo de cada contenedor de trabajo */
 work {
     display: flex;
     flex-direction: column;
@@ -17,61 +15,40 @@ work {
     border-radius: 10px;
 }
 
-/* Estilo del nombre del autor */
 name {
     font-size: 1.2em;
     font-weight: bold;
     margin-bottom: 10px;
 }
 
-/* Estilo del asunto */
 subject {
     font-style: italic;
     color: #555;
     margin-bottom: 15px;
 }
 
-/* Estilo del nombre del trabajo */
 work_name {
     font-weight: bold;
     margin-bottom: 15px;
+    font-size: 22px;
 }
 
-/* Estilo de la descripción */
 description {
     margin-bottom: 10px;
     margin-right: 20px;
     margin-left: 20px;
     text-align: center;
+    font-weight: lighter;
 }
 
-/* Alineación ajustada de la descripción */
 works work description {
     text-align: center;
 }
 
-/* Estilo específico para el nombre del autor a la izquierda */
-works name:nth-child(odd) {
-    text-align: left;
-}
-
-/* Estilo específico para el nombre del autor a la derecha */
-works name:nth-child(even) {
-    text-align: right;
-}
-
-/* Barra de separación entre nombres */
-works work name:after {
-    content: ' | ';
-    margin: 0 5px;
-}
-
-/* Estilo de la sección de habilidades */
 skills {
     margin-bottom: 15px;
 }
 
-/* Estilo de una habilidad */
 skill {
     background-color: red;
     color: #fff;
@@ -82,27 +59,22 @@ skill {
     border-radius: 3px;
 }
 
-/* Estilo de la sección de experiencia */
 experience {
     margin-bottom: 15px;
 }
 
-/* Estilo del lugar */
 place {
     font-weight: bold;
 }
 
-/* Estilo del rol */
 role {
     margin-bottom: 5px;
 }
 
-/* Estilo de la sección de estudios */
 studies {
     margin-bottom: 15px;
 }
 
-/* Estilo de un estudio */
 study {
     margin-right: 5px;
 }

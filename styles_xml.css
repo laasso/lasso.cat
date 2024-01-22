@@ -1,7 +1,8 @@
 about {
-    font-family: 'Arial', sans-serif;
+    font-family: monospace;
     margin: 20px;
     background-color: black;
+    font-size: 15px;
   }
   
   person {
