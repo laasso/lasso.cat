@@ -6,7 +6,7 @@ body {
     min-height: 100vh;
     display: flex;
     flex-direction: column;
-    background-image: url(sticks3.gif);
+    background-image: url(../media/sticks3.gif);
     background-position: bottom;
     background-size: cover;
     background-repeat:no-repeat ;
