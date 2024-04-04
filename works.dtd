@@ -1,8 +1,0 @@
-<!ELEMENT works (name+)>
-<!ELEMENT name (person, work+)>
-<!ATTLIST name id ID #REQUIRED>
-<!ELEMENT person (#PCDATA)>
-<!ELEMENT work (work_name, subject, description)>
-<!ELEMENT work_name (#PCDATA)>
-<!ELEMENT subject (#PCDATA)>
-<!ELEMENT description (#PCDATA)>
