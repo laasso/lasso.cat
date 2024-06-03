@@ -17,9 +17,9 @@ jobs:
       - name: Upload to FTP server
         uses: SamKirkland/FTP-Deploy-Action@4.3.0
         with:
-          ftp-server: ftp://ftp.lasso.cat  # Replace with your FTP server address
-          ftp-username: ${{ secrets.FTP_USERNAME }}
-          ftp-password: ${{ secrets.FTP_PASSWORD }}
+          server: ftp.lasso.cat  # Replace with your FTP server address
+          username: ${{ secrets.FTP_USERNAME }}
+          password: ${{ secrets.FTP_PASSWORD }}
           local-dir: ./  # Directory to upload, '.' means the root of the repository
-          git-ftp-args: --insecure  # Optional: add any additional arguments here
-
+          protocol: ftp  # Use 'ftps' if you need secure FTP
+          security: insecure  # Optional: add this if you want to ignore SSL certificate errors
