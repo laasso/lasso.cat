@@ -20,5 +20,5 @@ jobs:
           server: ftp.lasso.cat  # Replace with your FTP server address
           username: ${{ secrets.FTP_USERNAME }}
           password: ${{ secrets.FTP_PASSWORD }}
-          local-dir: ./  # Directory to upload, '.' means the root of the repository
+          local-dir: /domains/lasso.cat/public_html  # Directory to upload, '.' means the root of the repository
           protocol: ftps  # Use 'ftps' if you need secure FTP
