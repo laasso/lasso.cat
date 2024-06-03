@@ -1,46 +1,445 @@
-<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN"
-    "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
-<html xmlns="http://www.w3.org/1999/xhtml">
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
 
-<head>
-    <title>lasso developing</title>
-    <link rel="stylesheet" type="text/css" href="PubCSS/styles.css" />
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=DotGothic16&family=Press+Start+2P&display=swap" rel="stylesheet">
-    <link rel="shortcut icon" href="icons/pixil-frame-0.png">
-    <script defer src="https://use.fontawesome.com/releases/v5.15.4/js/all.js" integrity="sha384-rOA1PnstxnOBLzCLMcre8ybwbTmemjzdNlILg8O7z1lUkLXozs4DHonlDtnE7fpc" crossorigin="anonymous"></script>
-    <link rel="icon" type="image/x-icon" href="icons/pixil-frame-0.png">
+    <!-- Google Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap"
+      rel="stylesheet"
+    />
 
-</head>
-<body>
-    <body>
+    <!-- Stylesheet -->
+    <link rel="stylesheet" href="./assets/styles.css" />
+    <title>lasso - SysAdmin and Developer</title>
+    <meta
+      name="description"
+      content="Nicolás Rubiales is a mobile & web application developer from Kashipur, Uttarakhand & have 3+ years professional experience of transforming ideas into products."
+    />
+    <meta property="og:title" content="Nicolás Rubiales - Frontend Mobile & Web Developer" />
+    <meta
+      property="og:description"
+      content="Nicolás Rubiales is a mobile & web application developer from Kashipur, Uttarakhand & have 3+ years professional experience of transforming ideas into products."
+    />
+    <meta
+      property="og:image"
+      content="https://ik.imagekit.io/imashish/habitual-ecommerce/portal/logo.png"
+    />
+    <meta
+      property="og:description"
+      content="Nicolás Rubiales is a mobile & web application developer from Kashipur, Uttarakhand & have 3 years professional experience of transforming ideas into products."
+    />
+    <meta property="og:url" content="https://ashishmehra.dev" />
+    <script async src="https://www.googletagmanager.com/gtag/js?id=AW-949043903"></script>
+    <script>
+      window.dataLayer = window.dataLayer || [];
+      function gtag() {
+        dataLayer.push(arguments);
+      }
+      gtag("js", new Date());
 
+      gtag("config", "AW-949043903");
+    </script>
+  </head>
+
+  <body>
     <header>
-        <nav>
-            <ul>
-                <li><a href="https://github.com/laasso">GitHub</a></li>
-                <li><a href="https://www.linkedin.com/in/nrubi/">LinkedIn</a></li>
-                <li><a href="tuner/tuner.html" target="_blank">Tuner</a></li>
-
-        </nav>
-    </header>
-
-    <section class="principal-text">
-        <h1 class = 'subt'>under mantain</h1>
-        <br>
-        <h1>lasso web services</h1>
-        <br>
-        <h1 class = 'subt'>(not equal)</h1>
-
-
+      <nav class="flex container h-full items-center justify-between">
+        <ul class="main-nav flex justify-between items-center h-fitContent">
+          <li class="nav-item">
+            <a class="text initial" href="#home">
+              <img
+                alt="Portfolio logo"
+                width="70"
+                height="70"
+                src="https://ik.imagekit.io/imashish/portfolio/tr:f-auto/logo.png"
+              />
+            </a>
+          </li>
+          <li class="nav-item ham-btn">
+            <button aria-label="open navigation" id="hamburger">
+              <div class="ham-box">
+                <div class="ham-box-inner"></div>
+              </div>
+            </button>
+          </li>
+        </ul>
+        <ul class="desktop-nav">
+          <li class="work"><a href="#work">Work</a></li>
+          <li class="experience"><a href="#experience">Experience</a></li>
+          <li class="education"><a href="#education">Education</a></li>
+          <li class="contact"><a href="#contact">Contact</a></li>
         </ul>
 
-    </section>
+        <a href="/assets/CV-NicolasRubiales-ENG.pdf" target="_blank" class="text button secondary"
+          >Download CV</a
+        >
+      </nav>
+    </header>
 
-    <footer class = "copyright-info">
-        <p>Rights 2024 lasso</p>
-        <p>lasso@lasso.cat</p>
-    </footer>
-</body>
+    <!-- Mobile Navigation -->
+    <aside>
+      <nav>
+        <ul class="mobile-nav">
+          <li class="work"><a href="#work">Work</a></li>
+          <li class="experience"><a href="#experience">Experience</a></li>
+          <li class="education"><a href="#education">Education</a></li>
+          <li class="contact"><a href="#contact">Contact</a></li>
+        </ul>
+        <a href="/assets/ashish-mehra-resume.pdf" target="_blank" class="text button secondary"
+          >Download CV</a
+        >
+      </nav>
+    </aside>
+    <div class="layer"></div>
+
+    <div class="container">
+      <!-- Personal Info -->
+      <main>
+        <p class="text salutation">👋🏽 there!</p>
+        <h3 class="text title">
+          I'm Nicolás Rubiales.<br />
+          I build programms and administrate systems.
+        </h3>
+        <p class="text bio">
+          I am a curious geek and I like to experiment and create my own programs, currently i'm studying a <strong>SysAdmin</strong> degree.<br /><br />
+          I primarily engage in back-end development using
+          <strong>Python</strong>, <strong>PHP</strong>, <strong>Kotlin</strong>, &
+          <strong>SQL</strong> and like to explore & learn different things in my spare
+          time.
+          <br />
+          <br />
+          <strong>Opensource</strong> advocate and <strong>Linux</strong> enthusiast
+      </main>
+
+      <div class="main-content">
+        <!-- Recent Work -->
+
+        <!-- Work Experience -->
+        <section id="experience" class="wc-section flow-content flex col">
+          <h2 class="heading">Work Experience</h2>
+
+          <div class="wc-list flow-content">
+            <div class="divider"></div>
+            <div class="wc flow-content">
+              <span class="text year">April 2024 - Currently</span>
+              <div>
+                <div class="wc-info">
+                  <span class="text year">April 2024 - Currently</span>
+                  <h3 class="text name">Halcyon Expert SRL</h3>
+                  <span class="text role">Full Stack Developer</span>
+                </div>
+                <ul class="wc-responsibilities">
+                  <li class="text">
+                    Internship in the <strong>Erasmsus+</strong> program in Romania, 
+                    in charge of system administration and development
+                     of various programs and websites.
+                  </li>
+                </ul>
+                <div class="active-circle present"></div>
+              </div>
+            </div>
+
+            <div class="line"></div>
+            <div class="wc flow-content">
+              <span class="text year">August 2023 to April 2024</span>
+              <div>
+                <div class="wc-info">
+                  <span class="text year">August 2023 to April 2024</span>
+                  <h3 class="text name">Fractalia Remote Systems</h3>
+                  <span class="text role">L1 Technician</span>
+                </div>
+                <ul class="wc-responsibilities">
+                  <li class="text">
+                    Remote L1 helpdesk technician, initially for <strong>CaixaBank</strong> and later for Melia Hotels.
+                    I was in charge of solving all the issues of the systems of all <strong>Melia Hotels</strong>.
+                  </li>
+                </ul>
+
+                <div class="active-circle"></div>
+              </div>
+            </div>
+
+            <div class="line"></div>
+            <div class="wc flow-content">
+              <span class="text year">April 2023 to May 2023</span>
+              <div>
+                <div class="wc-info">
+                  <span class="text year">April 2023 to May 2023</span>
+                  <h3 class="text name">Motions Sutdios</h3>
+                  <span class="text role">Full Stack Web Developer</span>
+                </div>
+                <ul class="wc-responsibilities">
+                  <li class="text">
+                    Design and development of the web <strong><a href="https://loindiano.com">loindiano.com</a></strong>.
+                    <br>
+                    It was a service contract.
+                    <br>
+                   Developed with <strong>Wordpress</strong> for easy use by its owner.
+                  </li>
+                </ul>
+                <div class="active-circle"></div>
+              </div>
+            </div>
+            <div class="line"></div>
+            <div class="wc flow-content">
+              <span class="text year">June 2022 to June 2023</span>
+              <div>
+                <div class="wc-info">
+                  <span class="text year">June 2022 to June 2023</span>
+                  <h3 class="text name">MT Informatica</h3>
+                  <span class="text role">It Technician</span>
+                </div>
+                <ul class="wc-responsibilities">
+                  <li class="text">
+                    Internship in dual mode of the middle grade.
+                    <br>
+                    Field technician specialized in hardware and software.
+                    <br>
+                    I made repairs of all kinds, elaboration of budgets deal with the client and service at home.                  </li>
+                </ul>
+                <div class="active-circle"></div>
+              </div>
+            </div>
+          </div>
+        </section>
+
+        <!-- Education Experience -->
+
+        <section id="education" class="wc-section flow-content flex col">
+          <h2 class="heading">Education</h2>
+
+          <div class="wc-list education flow-content">
+            <div class="divider"></div>
+            <div class="wc flow-content">
+              <span class="text year">2023 - 2025</span>
+              <div>
+                <div class="wc-info">
+                  <span class="text year">2023 - 2025</span>
+                  <h3 class="text name">Institut Manuel Vazquez Montalban</h3>
+                  <span class="text role">Advanced degree in systems and networks administration</span>
+                </div>
+                <div class="active-circle"></div>
+              </div>
+            </div>
+
+            <div class="line"></div>
+            <div class="wc flow-content">
+              <span class="text year">2021 to 2023</span>
+              <div>
+                <div class="wc-info">
+                  <span class="text year">2021 to 2023</span>
+                  <h3 class="text name">Institut Manuel Vazquez Montalban</h3>
+                  <span class="text role">Medium degree in systems and networks administration</span>
+                </div>
+                <div class="active-circle"></div>
+              </div>
+            </div>
+          </div>
+        </section>
+
+        <!-- Contact -->
+        <section id="contact" class="contact-section flow-content">
+          <h2 class="heading">Contact</h2>
+          <p class="contact">
+            Get in touch or shoot me an email directly on
+            <a class="external-link" href="mailto:lasso@lasso.cat"
+              >lasso@lasso.cat</a
+            >
+          </p>
+          <div class="line"></div>
+          <div class="contact-meta flex justify-between items-center">
+            <ul class="social-list">
+              <li>
+           
+              </li>
+              <li>
+                <a
+                  class="flex touch"
+                  target="_blank"
+                  aria-label="View linkedin profile of Nicolás Rubiales"
+                  href="https://www.linkedin.com/in/nrubi/"
+                >
+                  <svg
+                    width="20"
+                    height="20"
+                    viewBox="0 0 20 20"
+                    fill="none"
+                    xmlns="http://www.w3.org/2000/svg"
+                  >
+                    <path
+                      d="M18.5195 0H1.47656C0.660156 0 0 0.644531 0 1.44141V18.5547C0 19.3516 0.660156 20 1.47656 20H18.5195C19.3359 20 20 19.3516 20 18.5586V1.44141C20 0.644531 19.3359 0 18.5195 0ZM5.93359 17.043H2.96484V7.49609H5.93359V17.043ZM4.44922 6.19531C3.49609 6.19531 2.72656 5.42578 2.72656 4.47656C2.72656 3.52734 3.49609 2.75781 4.44922 2.75781C5.39844 2.75781 6.16797 3.52734 6.16797 4.47656C6.16797 5.42188 5.39844 6.19531 4.44922 6.19531ZM17.043 17.043H14.0781V12.4023C14.0781 11.2969 14.0586 9.87109 12.5352 9.87109C10.9922 9.87109 10.7578 11.0781 10.7578 12.3242V17.043H7.79688V7.49609H10.6406V8.80078H10.6797C11.0742 8.05078 12.043 7.25781 13.4844 7.25781C16.4883 7.25781 17.043 9.23438 17.043 11.8047V17.043Z"
+                      fill="black"
+                    />
+                  </svg>
+                </a>
+              </li>
+              <li>
+                <a
+                  class="flex touch"
+                  aria-label="View github profile of Nicolás Rubiales"
+                  target="_blank"
+                  href="https://github.com/laasso"
+                >
+                  <svg
+                    width="20"
+                    height="20"
+                    viewBox="0 0 20 20"
+                    fill="none"
+                    xmlns="http://www.w3.org/2000/svg"
+                  >
+                    <path
+                      fill-rule="evenodd"
+                      clip-rule="evenodd"
+                      d="M9.99669 0.301758C7.62266 0.30299 5.32647 1.14383 3.51871 2.67392C1.71095 4.20401 0.509501 6.32358 0.129193 8.65362C-0.251115 10.9837 0.214513 13.3722 1.44283 15.3923C2.67114 17.4123 4.58204 18.932 6.83384 19.6797C7.33062 19.7719 7.51774 19.464 7.51774 19.2022C7.51774 18.9404 7.5078 18.1814 7.50449 17.3515C4.72251 17.9525 4.13465 16.1775 4.13465 16.1775C3.68093 15.025 3.02517 14.722 3.02517 14.722C2.11772 14.1062 3.09307 14.1177 3.09307 14.1177C4.09823 14.1885 4.62647 15.1435 4.62647 15.1435C5.51737 16.6633 6.96631 16.2236 7.53596 15.9668C7.62538 15.323 7.88536 14.885 8.17184 14.6364C5.94957 14.3861 3.61469 13.5332 3.61469 9.72316C3.60091 8.73505 3.96968 7.77948 4.64469 7.05415C4.54202 6.80388 4.19923 5.79291 4.74238 4.41971C4.74238 4.41971 5.58195 4.15298 7.49291 5.43891C9.13201 4.99322 10.8614 4.99322 12.5005 5.43891C14.4098 4.15298 15.2477 4.41971 15.2477 4.41971C15.7925 5.78962 15.4497 6.80059 15.347 7.05415C16.0242 7.77959 16.3937 8.73683 16.3787 9.72646C16.3787 13.5447 14.0388 14.3861 11.8133 14.6315C12.1709 14.941 12.4905 15.5453 12.4905 16.4739C12.4905 17.8043 12.4789 18.8745 12.4789 19.2022C12.4789 19.4673 12.6594 19.7768 13.1662 19.6797C15.4182 18.9319 17.3293 17.4119 18.5576 15.3916C19.7859 13.3712 20.2513 10.9823 19.8705 8.652C19.4898 6.32174 18.2878 4.20214 16.4794 2.67232C14.671 1.14249 12.3743 0.302209 10 0.301758H9.99669Z"
+                      fill="black"
+                    />
+                  </svg>
+                </a>
+              </li>
+              <li>
+             
+              </li>
+            </ul>
+            <span class="text meta-text"
+              >Design & Developed by
+              <a
+                href="https://www.linkedin.com/in/mehraas/"
+                target="_blank"
+                class="external-link"
+                >Nicolás Rubiales</a
+              ></span
+            >
+          </div>
+        </section>
+      </div>
+    </div>
+    <!-- Script -->
+    <script>
+      const hamburger = document.getElementById("hamburger");
+
+      const body = document.querySelector("body");
+      const layer = document.querySelector(".layer");
+
+      const main = document.querySelector("main");
+      const sections = document.querySelectorAll("section");
+      const desktopNavigation = document.querySelector(".desktop-nav");
+      const mobileNavigation = document.querySelector(".mobile-nav");
+
+      function isMenuActive() {
+        return document.body.classList.contains("blur");
+      }
+
+      function toggleNavigation() {
+        const isActive = isMenuActive();
+        if (isActive) {
+          document.body.classList.remove("blur");
+          layer.style.visibility = "hidden";
+        } else {
+          document.body.classList.add("blur");
+          layer.style.visibility = "visible";
+        }
+      }
+
+      if (hamburger) {
+        hamburger.addEventListener("click", toggleNavigation);
+      }
+
+      if (layer) {
+        layer.addEventListener("click", toggleNavigation);
+      }
+
+      if (desktopNavigation && mobileNavigation) {
+        function activeNavigation(e, isMobileNavigation = false) {
+          e.preventDefault();
+          const target = e.target;
+
+          if (target.nodeName === "A" && !target.classList.contains("button")) {
+            const parentElement = target.parentElement;
+            const activeElement = document.querySelector("nav li.active");
+            const className = parentElement.classList[0];
+            const targetSection = document.getElementById(className);
+            if (activeElement) activeElement.classList.remove("active");
+            if (isMobileNavigation) toggleNavigation();
+            parentElement.classList.add("active");
+            window.scrollTo({
+              top: targetSection.offsetTop - 90,
+              behavior: "smooth",
+            });
+          }
+
+          if (target.classList.contains("button") && isMobileNavigation) {
+            toggleNavigation();
+          }
+        }
+
+        desktopNavigation.addEventListener("click", activeNavigation);
+        mobileNavigation.addEventListener("click", (e) => activeNavigation(e, true));
+      }
+
+      window.onload = function () {
+        if (pageYOffset > 0) {
+          window.scroll({
+            top: 0,
+            behavior: "smooth",
+          });
+        }
+      };
+
+      window.addEventListener("message", (event) => {
+        console.log(event);
+      });
+    </script>
+
+    <script type="module">
+      // Import the functions you need from the SDKs you need
+      import { initializeApp } from "https://www.gstatic.com/firebasejs/9.9.3/firebase-app.js";
+      import {
+        getAnalytics,
+        logEvent,
+      } from "https://www.gstatic.com/firebasejs/9.9.3/firebase-analytics.js";
+      // TODO: Add SDKs for Firebase products that you want to use
+      // https://firebase.google.com/docs/web/setup#available-libraries
+
+      // Your web app's Firebase configuration
+      // For Firebase JS SDK v7.20.0 and later, measurementId is optional
+      const firebaseConfig = {
+        apiKey: "AIzaSyCCQcCRncGqhN164LLAT8PrRrOx3ZypI8k",
+        authDomain: "portfolio-adbe0.firebaseapp.com",
+        projectId: "portfolio-adbe0",
+        storageBucket: "portfolio-adbe0.appspot.com",
+        messagingSenderId: "740127512403",
+        appId: "1:740127512403:web:d9f2f859e78eea083173a6",
+        measurementId: "G-J4DQ35CBY6",
+      };
+
+      // Initialize Firebase
+      const app = initializeApp(firebaseConfig);
+      const analytics = getAnalytics(app);
+      const buttons = document.querySelectorAll("a.button");
+      const socialListAnchors = document.querySelectorAll(".social-list a");
+
+      function logPageEvent(e) {
+        const target = e.target;
+        if (analytics) {
+          logEvent(analytics, `User visit ${target.href}`);
+        }
+      }
+
+      if (buttons) {
+        buttons.forEach((button) => {
+          button.addEventListener("click", logPageEvent);
+        });
+      }
+
+      if (socialListAnchors) {
+        socialListAnchors.forEach((anchor) => {
+          anchor.addEventListener("click", logPageEvent);
+        });
+      }
+    </script>
+  </body>
 </html>
