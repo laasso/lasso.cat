@@ -21,4 +21,4 @@ jobs:
           username: ${{ secrets.FTP_USERNAME }}
           password: ${{ secrets.FTP_PASSWORD }}
           local-dir: ./  # Directory to upload, '.' means the root of the repository
-          protocol: ftp  # Use 'ftps' if you need secure FTP
+          protocol: ftps  # Use 'ftps' if you need secure FTP
