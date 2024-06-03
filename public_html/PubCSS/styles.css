@@ -6,8 +6,12 @@ body {
     min-height: 100vh;
     display: flex;
     flex-direction: column;
+    background-color: black;
+    /* Commented out the previous background properties */
+    /*
     background-image: url(../media/sticks3.gif);
     background-position: bottom;
+    */
     background-size: cover;
     background-repeat:no-repeat ;
     max-width: 100%;
