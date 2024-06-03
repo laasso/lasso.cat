@@ -22,4 +22,3 @@ jobs:
           password: ${{ secrets.FTP_PASSWORD }}
           local-dir: ./  # Directory to upload, '.' means the root of the repository
           protocol: ftp  # Use 'ftps' if you need secure FTP
-          security: strict  # Optional: add this if you want to ignore SSL certificate errors
