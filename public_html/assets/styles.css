@@ -236,7 +236,7 @@ body {
   --fontSize: var(--fs-s);
 
   display: block;
-  width: .5rem;
+  width: 10rem;
   height: 50px;
   display: flex;
   justify-content: center;
