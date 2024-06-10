@@ -13,6 +13,7 @@
   --clr-border: #dcdcdc;
   --clr-shade: #f5f5f5;
   --clr-white: #ffffff;
+  --clr-purple: rgb(117,0,255);
 
   --ff-poppins: "Poppins", sans-serif;
 
@@ -83,6 +84,7 @@ ol[class],
 li[class] {
   list-style: none;
   padding: 0;
+
 }
 
 img {
@@ -229,18 +231,17 @@ body {
   content: "→";
   margin-left: -1.5rem;
 }
-
 .button {
   --weight: var(--fw-bold);
   --fontSize: var(--fs-s);
 
   display: block;
-  width: 12.5rem;
-  height: 55px;
+  width: .5rem;
+  height: 50px;
   display: flex;
   justify-content: center;
   align-items: center;
-  border: 2px solid var(--clr-blackShade);
+  border: 2px solid transparent;
   border-radius: var(--radius-curve);
   background-color: var(--btn-bg, var(--clr-white));
   color: var(--btn-text, var(--clr-blackShade)) !important;
@@ -250,7 +251,7 @@ body {
 }
 
 .secondary {
-  --btn-bg: var(--clr-blackShade);
+  --btn-bg: var(--clr-purple);
   --btn-text: var(--clr-white);
 }
 
@@ -480,6 +481,10 @@ header {
   border-width: 0;
 }
 
+header:hover {
+  cursor: pointer;
+  color: var(--clr-purple);
+}
 /* Main */
 
 main {
@@ -589,7 +594,7 @@ main .title {
 }
 
 .wc-info .role {
-  --weight: var(--fw-light);
+  --weight: var(--fw-regular);
   --fontSize: var(--fs-s);
 }
 
@@ -870,3 +875,35 @@ main .title {
     margin-bottom: 0;
   }
 }
+
+strong {
+  color: var(--clr-purple);
+}
+
+.animated-title::before {
+  content: "System Administrator";
+  animation: animatetitle infinite 10s;
+  -webkit-animation: animatetitle infinite 10s;
+}
+
+@keyframes animatetitle {
+  0%, 25% {
+    color: dodgerblue;
+    content: "System Administrator";
+  }
+  26%, 50% {
+    color: brown;
+    content: "Developer";
+  }
+  51%, 75% {
+    color: darkgoldenrod;
+    content: "Tech Enthusiast";
+  }
+  76%, 100% {
+    color: forestgreen;
+    content: "CyberSecurity Analyst";
+  }
+}
+ pollas {
+  font-size: 65px;
+ }
