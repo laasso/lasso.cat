@@ -892,11 +892,11 @@ strong {
     content: "System Administrator";
   }
   26%, 50% {
-    color: brown;
+    color: rgb(240, 35, 35);
     content: "Developer";
   }
   51%, 75% {
-    color: darkgoldenrod;
+    color: rgb(255, 209, 57);
     content: "Tech Enthusiast";
   }
   76%, 100% {
