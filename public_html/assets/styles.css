@@ -896,11 +896,11 @@ strong {
     content: "Developer";
   }
   51%, 75% {
-    color: rgb(255, 209, 57);
+    color: rgb(255, 204, 35);
     content: "Tech Enthusiast";
   }
   76%, 100% {
-    color: forestgreen;
+    color: rgb(46, 175, 46);
     content: "CyberSecurity Analyst";
   }
 }
