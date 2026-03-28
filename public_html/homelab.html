@@ -1,0 +1,532 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Home Lab — lasso.cat</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
+<style>
+*, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+/* ── DARK THEME (default) ── */
+:root {
+  --bg:       #0d1117;
+  --surface:  #161b22;
+  --border:   #30363d;
+  --text:     #c9d1d9;
+  --muted:    #6e7681;
+  --accent:   #7500ff;
+  --blue:     #388bfd;
+  --green:    #3fb950;
+  --amber:    #d29922;
+  --node-bg:  #1c2128;
+  --node-bg-h:#252c36;
+  --node-text:#e6edf3;
+  --node-sub: #404850;
+  --zone-label: #2d333b;
+  --grid-line: #1a2030;
+}
+
+/* ── LIGHT THEME ── */
+html.light {
+  --bg:       #f6f8fa;
+  --surface:  #ffffff;
+  --border:   #d0d7de;
+  --text:     #24292f;
+  --muted:    #57606a;
+  --accent:   #7500ff;
+  --blue:     #0969da;
+  --green:    #1a7f37;
+  --amber:    #9a6700;
+  --node-bg:  #ffffff;
+  --node-bg-h:#f6f8fa;
+  --node-text:#24292f;
+  --node-sub: #8c959f;
+  --zone-label:#cdd0d4;
+  --grid-line: #e8ecf0;
+}
+
+html, body {
+  background: var(--bg);
+  color: var(--text);
+  font-family: 'Poppins', sans-serif;
+  height: 100%;
+}
+
+body {
+  display: flex;
+  flex-direction: column;
+  padding: 1.25rem 1.5rem 1rem;
+  gap: 0.875rem;
+  min-height: 100%;
+}
+
+/* ── HEADER ── */
+.lab-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  flex-wrap: wrap;
+  gap: 0.75rem;
+  padding-bottom: 0.875rem;
+  border-bottom: 1px solid var(--border);
+  flex-shrink: 0;
+}
+
+.lab-title {
+  font-size: 1.2rem;
+  font-weight: 600;
+  color: var(--node-text);
+  letter-spacing: -0.02em;
+}
+
+.lab-title span { color: var(--accent); }
+
+.lab-meta {
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+  flex-wrap: wrap;
+}
+
+.lab-spec {
+  font-size: 0.68rem;
+  color: var(--muted);
+  font-family: 'JetBrains Mono', monospace;
+}
+
+.lab-status {
+  display: flex;
+  align-items: center;
+  gap: 0.4rem;
+  font-size: 0.68rem;
+  font-weight: 500;
+  color: var(--green);
+  font-family: 'JetBrains Mono', monospace;
+}
+
+.pulse {
+  width: 6px; height: 6px;
+  border-radius: 50%;
+  background: var(--green);
+  animation: pulse-anim 2.5s ease-in-out infinite;
+}
+
+@keyframes pulse-anim {
+  0%,100% { opacity: 1; }
+  50%      { opacity: 0.3; }
+}
+
+/* ── DIAGRAM ── */
+.diagram-wrap {
+  background: var(--surface);
+  border: 1px solid var(--border);
+  border-radius: 10px;
+  overflow: auto;
+  flex: 1;
+  min-height: 400px;
+}
+
+#lab-svg {
+  width: 100%;
+  height: auto;
+  min-width: 680px;
+  display: block;
+}
+
+/* ── LEGEND ── */
+.legend-bar {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: 0.4rem 1.25rem;
+  padding: 0.65rem 1rem;
+  background: var(--surface);
+  border: 1px solid var(--border);
+  border-radius: 8px;
+  font-size: 0.63rem;
+  color: var(--muted);
+  font-family: 'JetBrains Mono', monospace;
+  flex-shrink: 0;
+}
+
+.legend-item { display: flex; align-items: center; gap: 0.45rem; }
+.legend-hint { margin-left: auto; opacity: 0.5; }
+
+/* ── TOOLTIP ── */
+.tt {
+  position: fixed;
+  background: var(--surface);
+  border: 1px solid var(--border);
+  border-radius: 8px;
+  padding: 0.75rem 1rem;
+  font-size: 0.69rem;
+  line-height: 1.7;
+  color: var(--text);
+  pointer-events: none;
+  z-index: 9999;
+  max-width: 240px;
+  box-shadow: 0 8px 24px rgba(0,0,0,.25);
+  transition: opacity .1s;
+  font-family: 'Poppins', sans-serif;
+}
+.tt.off { opacity: 0; }
+.tt-title { font-size: 0.78rem; font-weight: 600; color: var(--node-text); margin-bottom: 0.1rem; }
+.tt-type  { font-size: 0.6rem; color: var(--muted); text-transform: uppercase; letter-spacing: 0.07em; margin-bottom: 0.35rem; padding-bottom: 0.3rem; border-bottom: 1px solid var(--border); font-family: 'JetBrains Mono', monospace; }
+.tt-desc  { white-space: pre-line; font-size: 0.67rem; }
+
+.node-group { cursor: default; }
+</style>
+</head>
+<body>
+
+<header class="lab-header">
+  <h2 class="lab-title">Home<span>Lab</span></h2>
+  <div class="lab-meta">
+    <span class="lab-spec">i7-6700 · GTX 1050Ti · 16 GB DDR4</span>
+    <span class="lab-spec">Proxmox · OPNsense · Tailscale · Cloudflare</span>
+    <div class="lab-status"><span class="pulse"></span>online</div>
+  </div>
+</header>
+
+<div class="diagram-wrap">
+  <svg id="lab-svg" viewBox="0 0 920 790" xmlns="http://www.w3.org/2000/svg">
+    <defs>
+      <pattern id="grid" width="32" height="32" patternUnits="userSpaceOnUse">
+        <path d="M32 0L0 0 0 32" fill="none" stroke="var(--grid-line, #1a2030)" stroke-width=".6"/>
+      </pattern>
+    </defs>
+
+    <rect id="svg-bg" width="920" height="790" fill="var(--surface, #161b22)"/>
+    <rect width="920" height="790" fill="url(#grid)" opacity=".9"/>
+
+    <!-- Zone: Tailscale mesh -->
+    <rect x="34" y="614" width="852" height="160" rx="10"
+          fill="rgba(63,185,80,.04)" stroke="var(--green, #3fb950)" stroke-width=".8"
+          stroke-dasharray="6 5" opacity=".5"/>
+
+    <!-- Zone: Isolated VLAN -->
+    <rect x="303" y="490" width="152" height="64" rx="8"
+          fill="rgba(117,0,255,.05)" stroke="var(--accent, #7500ff)" stroke-width=".9"
+          stroke-dasharray="4 3" opacity=".65"/>
+
+    <!-- Layer labels -->
+    <g id="layer-labels" font-family="JetBrains Mono,monospace" font-size="8" font-weight="600"
+       letter-spacing=".1em" fill="var(--zone-label, #2d333b)">
+      <text x="40" y="38">INTERNET EDGE</text>
+      <text x="40" y="300">PROXMOX VE</text>
+      <text x="40" y="447">LXC CONTAINERS</text>
+      <text x="55" y="632">TAILSCALE MESH</text>
+      <text x="40" y="680">REMOTE NODES</text>
+    </g>
+
+    <text id="vlan-label" x="312" y="507"
+          font-family="JetBrains Mono,monospace" font-size="7"
+          fill="var(--accent, #7500ff)" opacity=".65" letter-spacing=".09em">ISOLATED VLAN</text>
+
+    <g id="g-conns"></g>
+    <g id="g-nodes"></g>
+  </svg>
+</div>
+
+<div class="legend-bar">
+  <div class="legend-item">
+    <svg width="22" height="8"><line x1="0" y1="4" x2="22" y2="4" stroke="#7500ff" stroke-width="1.8" stroke-dasharray="5 7"/></svg>
+    Core
+  </div>
+  <div class="legend-item">
+    <svg width="22" height="8"><line x1="0" y1="4" x2="22" y2="4" stroke="#388bfd" stroke-width="1.3" stroke-dasharray="4 6"/></svg>
+    LXC
+  </div>
+  <div class="legend-item">
+    <svg width="22" height="8"><line x1="0" y1="4" x2="22" y2="4" stroke="#3fb950" stroke-width="1.8" stroke-dasharray="8 7"/></svg>
+    Tailscale hub
+  </div>
+  <div class="legend-item">
+    <svg width="22" height="8"><line x1="0" y1="4" x2="22" y2="4" stroke="#3fb950" stroke-width="1" stroke-dasharray="3 4"/></svg>
+    Mesh node
+  </div>
+  <div class="legend-item">
+    <svg width="22" height="8"><line x1="0" y1="4" x2="22" y2="4" stroke="#d29922" stroke-width="1" stroke-dasharray="2 4"/></svg>
+    Notification
+  </div>
+  <span class="legend-hint">hover a node for details</span>
+</div>
+
+<div id="tt" class="tt off">
+  <div id="tt-title" class="tt-title"></div>
+  <div id="tt-type"  class="tt-type"></div>
+  <div id="tt-desc"  class="tt-desc"></div>
+</div>
+
+<script>
+// ── THEME ────────────────────────────────────────────────────────────────────
+const params = new URLSearchParams(window.location.search);
+const theme  = params.get('theme') || 'dark';
+if (theme === 'light') document.documentElement.classList.add('light');
+
+// After theme is set, also update SVG fill vars (SVG doesn't inherit CSS vars the same way)
+const isDark = theme !== 'light';
+const svgBg  = document.getElementById('svg-bg');
+if (svgBg) svgBg.setAttribute('fill', isDark ? '#161b22' : '#ffffff');
+
+const C = isDark ? {
+  accent:  '#7500ff',
+  blue:    '#388bfd',
+  green:   '#3fb950',
+  amber:   '#d29922',
+  muted:   '#484f58',
+  nodeBg:  '#1c2128',
+  nodeHov: '#252c36',
+  nodeText:'#e6edf3',
+  nodeSub: '#404850',
+  border:  '#30363d',
+} : {
+  accent:  '#7500ff',
+  blue:    '#0969da',
+  green:   '#1a7f37',
+  amber:   '#9a6700',
+  muted:   '#8c959f',
+  nodeBg:  '#f6f8fa',
+  nodeHov: '#eaeef2',
+  nodeText:'#24292f',
+  nodeSub: '#adb5bd',
+  border:  '#d0d7de',
+};
+
+// ── NODES ─────────────────────────────────────────────────────────────────────
+const NODES = [
+  {
+    id:'cf', label:'Cloudflare', sub:'DNS · DDNS · DDoS proxy',
+    x:365, y:67, w:165, h:46, color: C.blue,
+    typeLabel:'Cloud / CDN',
+    desc:'Proxy DNS + DDoS protection\nDynamic DNS: a local script watches for\npublic IP changes and auto-updates\nCloudflare DNS → notifies via Telegram'
+  },
+  {
+    id:'tg', label:'Telegram Bot', sub:'DDNS alerts · Wazuh · Honeypot',
+    x:748, y:90, w:156, h:46, color: C.amber,
+    typeLabel:'Notifications',
+    desc:'Centralised real-time alerts:\n· Public IP change (DDNS)\n· Wazuh SIEM events\n· SSH Honeypot session captured'
+  },
+  {
+    id:'ops', label:'OPNsense', sub:'Firewall · NAT · WireGuard VPN',
+    x:365, y:198, w:165, h:46, color: C.accent,
+    typeLabel:'Firewall / Router (VM on Proxmox)',
+    desc:'Main router running as a Proxmox VM\nStateful firewall + port-forwarding NAT\nWireGuard VPN for remote access\nDDNS script → calls Cloudflare API'
+  },
+  {
+    id:'pmx', label:'Proxmox VE', sub:'i7-6700 · 16 GB DDR4 · GTX 1050Ti',
+    x:365, y:340, w:192, h:56, color: C.accent, main: true,
+    typeLabel:'Hypervisor — Physical tower',
+    desc:'The foundation of the homelab\nIntel i7-6700 · 16 GB DDR4\nNVIDIA GTX 1050Ti available for GPU passthrough\nManages all VMs and LXC containers'
+  },
+  {
+    id:'vw', label:'Vaultwarden', sub:'LXC · passwords · 2FA TOTP',
+    x:68, y:484, w:134, h:44, color: C.blue,
+    typeLabel:'LXC Container',
+    desc:'Self-hosted Bitwarden-compatible\npassword manager\n2FA with TOTP authenticator app\nUsed for all lab credentials + 2FA'
+  },
+  {
+    id:'prx', label:'Caddy / Nginx', sub:'LXC · reverse proxy · TLS',
+    x:228, y:502, w:144, h:44, color: C.blue,
+    typeLabel:'LXC Container',
+    desc:'Reverse proxy rotating between:\nCaddy · Nginx · Traefik\nAutomatic Let\'s Encrypt TLS certificates\nTerminates HTTPS for all local services'
+  },
+  {
+    id:'tor', label:'TOR Mirror', sub:'VLAN isolated · onion · 🧅',
+    x:382, y:522, w:134, h:44, color: C.accent, dash: '4 2',
+    typeLabel:'LXC — Isolated VLAN',
+    desc:'Personal site mirrored over the TOR network\nRuns in a VLAN fully isolated from the\nrest of the infrastructure\nSpun up when I feel like it — just for fun 🧅'
+  },
+  {
+    id:'ola', label:'Ollama', sub:'LXC · local LLMs · GPU passthrough',
+    x:540, y:502, w:138, h:44, color: C.blue,
+    typeLabel:'LXC Container',
+    desc:'Local LLM inference on the GTX 1050Ti\nvia GPU passthrough to the LXC container\nSmall models — limited VRAM\nbut enough to tinker and experiment'
+  },
+  {
+    id:'dev', label:'Dev Lab', sub:'LXC templates · Terraform · Ansible',
+    x:706, y:484, w:152, h:44, color: C.blue,
+    typeLabel:'LXC / Dev Templates',
+    desc:'Reusable LXC dev environment templates\nTerraform for infra provisioning\nAnsible for automated configuration\nBase for side projects like the SSH Honeypot'
+  },
+  {
+    id:'ts', label:'Tailscale', sub:'Mesh VPN · WireGuard · no static IP needed',
+    x:365, y:647, w:175, h:46, color: C.green,
+    typeLabel:'VPN Mesh Hub',
+    desc:'WireGuard-based mesh VPN\nInterconnects all devices securely:\nTower · VPS · Mobile · CETI · Luckfox\nWorks without a static IP via DERP relays'
+  },
+  {
+    id:'vps', label:'VPS', sub:'SSH Honeypot · testing',
+    x:100, y:718, w:124, h:44, color: C.muted,
+    typeLabel:'Remote VPS',
+    desc:'Remote machine for testing\nSSH Honeypot running here:\ncaptures sessions, enriches with GeoIP,\nAI analysis → alert via Telegram'
+  },
+  {
+    id:'ph', label:'Mobile', sub:'Tailscale · Vaultwarden',
+    x:262, y:730, w:116, h:40, color: C.muted,
+    typeLabel:'Mobile Device',
+    desc:'Secure access to the lab from any network\nTailscale creates a direct WireGuard tunnel\nVaultwarden for passwords and 2FA on the go'
+  },
+  {
+    id:'inst', label:'CETI Institute', sub:'Zabbix monitoring · Wazuh SIEM',
+    x:490, y:722, w:162, h:44, color: C.muted,
+    typeLabel:'Remote Node — CETI',
+    desc:'Machine at the CETI institute\nZabbix: infrastructure metrics & uptime\nWazuh: SIEM + threat detection & response\nAll alerts → Telegram · Access → Tailscale'
+  },
+  {
+    id:'lf', label:'Luckfox Pico+', sub:'Physical entropy source · WIP 🧪',
+    x:714, y:712, w:156, h:44, color: C.amber, dash: '5 2',
+    typeLabel:'Experimental — work in progress',
+    desc:'Luckfox Pico Plus + camera module\nGoal: replicate Cloudflare\'s lava lamp wall\nas a physical entropy source for key generation\nCurrently parked — still on the list'
+  },
+];
+
+// ── CONNECTION STYLES ─────────────────────────────────────────────────────────
+const STYLES = {
+  core: { s: C.accent, w: 1.8, da: '6 10',  anim: true,  dur: 2.0, op: .75 },
+  lxc:  { s: C.blue,   w: 1.3, da: '5 9',   anim: true,  dur: 2.8, op: .6  },
+  iso:  { s: C.accent, w: 1.2, da: '4 3',   anim: false, dur: 0,   op: .55 },
+  ntf:  { s: C.amber,  w: 1.0, da: '2 5',   anim: false, dur: 0,   op: .55 },
+  ts:   { s: C.green,  w: 2.0, da: '10 9',  anim: true,  dur: 1.6, op: .8  },
+  mesh: { s: C.green,  w: 1.0, da: '4 5',   anim: false, dur: 0,   op: .4  },
+};
+
+const CONNS = [
+  { t:'core', d:'M 365,90  L 365,175' },
+  { t:'ntf',  d:'M 448,74  C 580,52 668,80 670,92' },
+  { t:'ntf',  d:'M 448,198 C 580,174 660,120 670,113' },
+  { t:'core', d:'M 365,221 L 365,312' },
+  { t:'lxc',  d:'M 300,366 C 218,410 108,454 68,463' },
+  { t:'lxc',  d:'M 320,368 C 282,418 228,472 228,481' },
+  { t:'iso',  d:'M 374,368 L 380,499' },
+  { t:'lxc',  d:'M 418,368 C 460,418 516,472 540,481' },
+  { t:'lxc',  d:'M 450,364 C 558,410 660,454 706,463' },
+  { t:'ts',   d:'M 365,368 L 365,624' },
+  { t:'mesh', d:'M 292,669 C 228,680 148,692 100,697' },
+  { t:'mesh', d:'M 320,671 C 298,684 270,708 262,709' },
+  { t:'mesh', d:'M 420,670 C 448,684 468,702 490,702' },
+  { t:'mesh', d:'M 452,662 C 546,676 640,690 714,691' },
+];
+
+// ── RENDER ────────────────────────────────────────────────────────────────────
+const NS     = 'http://www.w3.org/2000/svg';
+const gConns = document.getElementById('g-conns');
+const gNodes = document.getElementById('g-nodes');
+
+CONNS.forEach((conn, i) => {
+  const s = STYLES[conn.t];
+  const p = document.createElementNS(NS, 'path');
+  p.setAttribute('d', conn.d);
+  p.setAttribute('fill', 'none');
+  p.setAttribute('stroke', s.s);
+  p.setAttribute('stroke-width', s.w);
+  p.setAttribute('opacity', s.op);
+  p.setAttribute('stroke-dasharray', s.da);
+  p.setAttribute('stroke-linecap', 'round');
+  if (s.anim) {
+    const total = s.da.split(' ').map(Number).reduce((a, b) => a + b, 0);
+    const a = document.createElementNS(NS, 'animate');
+    a.setAttribute('attributeName', 'stroke-dashoffset');
+    a.setAttribute('from', '0');
+    a.setAttribute('to', String(-total));
+    a.setAttribute('dur', `${(s.dur + (i % 5) * 0.2).toFixed(2)}s`);
+    a.setAttribute('repeatCount', 'indefinite');
+    a.setAttribute('calcMode', 'linear');
+    p.appendChild(a);
+  }
+  gConns.appendChild(p);
+});
+
+const tt      = document.getElementById('tt');
+const ttTitle = document.getElementById('tt-title');
+const ttType  = document.getElementById('tt-type');
+const ttDesc  = document.getElementById('tt-desc');
+
+NODES.forEach(node => {
+  const g  = document.createElementNS(NS, 'g');
+  g.setAttribute('class', 'node-group');
+  const lx = node.x - node.w / 2;
+  const ly = node.y - node.h / 2;
+  const rx = 6;
+
+  // Border glow for key nodes (subtle)
+  if (node.main) {
+    const glow = document.createElementNS(NS, 'rect');
+    glow.setAttribute('x', lx - 3); glow.setAttribute('y', ly - 3);
+    glow.setAttribute('width', node.w + 6); glow.setAttribute('height', node.h + 6);
+    glow.setAttribute('rx', rx + 2);
+    glow.setAttribute('fill', 'none');
+    glow.setAttribute('stroke', node.color);
+    glow.setAttribute('stroke-width', '1');
+    glow.setAttribute('opacity', '.2');
+    g.appendChild(glow);
+  }
+
+  const rect = document.createElementNS(NS, 'rect');
+  rect.setAttribute('x', lx); rect.setAttribute('y', ly);
+  rect.setAttribute('width', node.w); rect.setAttribute('height', node.h);
+  rect.setAttribute('rx', rx);
+  rect.setAttribute('fill', C.nodeBg);
+  rect.setAttribute('stroke', node.color);
+  rect.setAttribute('stroke-width', node.main ? '1.5' : '1');
+  rect.setAttribute('stroke-opacity', node.main ? '1' : '0.65');
+  if (node.dash) rect.setAttribute('stroke-dasharray', node.dash);
+  g.appendChild(rect);
+
+  const lbl = document.createElementNS(NS, 'text');
+  lbl.setAttribute('x', node.x);
+  lbl.setAttribute('y', node.sub ? node.y - 7 : node.y);
+  lbl.setAttribute('text-anchor', 'middle');
+  lbl.setAttribute('dominant-baseline', 'middle');
+  lbl.setAttribute('fill', node.main ? node.color : C.nodeText);
+  lbl.setAttribute('font-family', 'Poppins, sans-serif');
+  lbl.setAttribute('font-size', node.main ? '12' : '10.5');
+  lbl.setAttribute('font-weight', node.main ? '600' : '500');
+  lbl.textContent = node.label;
+  g.appendChild(lbl);
+
+  if (node.sub) {
+    const sub = document.createElementNS(NS, 'text');
+    sub.setAttribute('x', node.x);
+    sub.setAttribute('y', node.y + 8);
+    sub.setAttribute('text-anchor', 'middle');
+    sub.setAttribute('dominant-baseline', 'middle');
+    sub.setAttribute('fill', C.nodeSub);
+    sub.setAttribute('font-family', 'JetBrains Mono, monospace');
+    sub.setAttribute('font-size', '7');
+    sub.textContent = node.sub;
+    g.appendChild(sub);
+  }
+
+  // Transparent hit area
+  const hit = document.createElementNS(NS, 'rect');
+  hit.setAttribute('x', lx); hit.setAttribute('y', ly);
+  hit.setAttribute('width', node.w); hit.setAttribute('height', node.h);
+  hit.setAttribute('rx', rx); hit.setAttribute('fill', 'transparent');
+  g.appendChild(hit);
+
+  g.addEventListener('mouseenter', () => {
+    rect.setAttribute('fill', C.nodeHov);
+    ttTitle.textContent = node.label;
+    ttType.textContent  = node.typeLabel;
+    ttDesc.textContent  = node.desc;
+    tt.classList.remove('off');
+  });
+  g.addEventListener('mousemove', e => {
+    const x = e.clientX + 16, y = e.clientY - 8;
+    tt.style.left = Math.min(x, window.innerWidth  - 256) + 'px';
+    tt.style.top  = Math.min(y, window.innerHeight - 220) + 'px';
+  });
+  g.addEventListener('mouseleave', () => {
+    rect.setAttribute('fill', C.nodeBg);
+    tt.classList.add('off');
+  });
+
+  gNodes.appendChild(g);
+});
+</script>
+</body>
+</html>

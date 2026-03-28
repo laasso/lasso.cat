@@ -594,6 +594,30 @@
 
           <div class="projects-grid">
 
+            <!-- Home Lab -->
+            <button class="project-card project-card--interactive" id="homelab-btn">
+              <div class="project-header">
+                <svg class="project-icon" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                  <rect x="2" y="3" width="20" height="14" rx="2"/><line x1="8" y1="21" x2="16" y2="21"/><line x1="12" y1="17" x2="12" y2="21"/>
+                </svg>
+                <span class="project-interactive-badge">Interactive</span>
+              </div>
+              <h3 class="project-title">Home Lab</h3>
+              <p class="project-description">
+                Self-hosted infrastructure running on a Proxmox tower. OPNsense firewall, Tailscale mesh VPN, Cloudflare DDNS, Vaultwarden, reverse proxy, local LLM inference via Ollama, TOR mirror in an isolated VLAN, and a Wazuh + Zabbix monitoring stack — all interconnected and notified via Telegram.
+              </p>
+              <div class="project-tags">
+                <span class="skill-tag">Proxmox</span>
+                <span class="skill-tag">OPNsense</span>
+                <span class="skill-tag">Tailscale</span>
+                <span class="skill-tag">Cloudflare</span>
+                <span class="skill-tag">Wazuh</span>
+                <span class="skill-tag">Ollama</span>
+                <span class="skill-tag">Vaultwarden</span>
+                <span class="skill-tag">Ansible</span>
+              </div>
+            </button>
+
             <!-- Impulsa-te AI -->
             <a class="project-card" href="https://impulsa-te.com" target="_blank" rel="noopener noreferrer">
               <div class="project-header">
@@ -766,6 +790,23 @@
         </section>
       </div>
     </div>
+    <!-- Home Lab Modal -->
+    <div class="cert-modal-overlay homelab-modal-overlay" id="homelab-modal" role="dialog" aria-modal="true" aria-label="Home Lab diagram">
+      <div class="cert-modal homelab-modal">
+        <div class="cert-modal-header">
+          <span class="cert-modal-title">Home Lab — Interactive Infrastructure Diagram</span>
+          <button class="cert-modal-close" id="homelab-modal-close" aria-label="Close">
+            <svg width="20" height="20" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+              <path d="M18 6L6 18M6 6l12 12" stroke="currentColor" stroke-width="2" stroke-linecap="round"/>
+            </svg>
+          </button>
+        </div>
+        <div class="cert-modal-body">
+          <iframe src="homelab.html" title="Home Lab diagram" id="homelab-iframe"></iframe>
+        </div>
+      </div>
+    </div>
+
     <!-- Certificate Modal -->
     <div class="cert-modal-overlay" id="cert-modal" role="dialog" aria-modal="true" aria-label="Cisco certification">
       <div class="cert-modal">
@@ -918,6 +959,36 @@
         }
       }
       loadGitHubStats();
+
+      // Home Lab modal
+      const homelabModal = document.getElementById("homelab-modal");
+      const homelabBtn   = document.getElementById("homelab-btn");
+      const homelabClose = document.getElementById("homelab-modal-close");
+
+      if (homelabBtn && homelabModal) {
+        homelabBtn.addEventListener("click", () => {
+          const theme = document.documentElement.getAttribute("data-theme") || "light";
+          document.getElementById("homelab-iframe").src = `homelab.html?theme=${theme}`;
+          homelabModal.classList.add("active");
+          document.body.style.overflow = "hidden";
+        });
+        homelabClose.addEventListener("click", () => {
+          homelabModal.classList.remove("active");
+          document.body.style.overflow = "";
+        });
+        homelabModal.addEventListener("click", e => {
+          if (e.target === homelabModal) {
+            homelabModal.classList.remove("active");
+            document.body.style.overflow = "";
+          }
+        });
+        document.addEventListener("keydown", e => {
+          if (e.key === "Escape" && homelabModal.classList.contains("active")) {
+            homelabModal.classList.remove("active");
+            document.body.style.overflow = "";
+          }
+        });
+      }
 
       // Certificate modal
       const certModal = document.getElementById("cert-modal");
