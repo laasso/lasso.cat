@@ -70,17 +70,28 @@
         <ul class="desktop-nav">
           <li class="experience"><a href="#experience">Experience</a></li>
           <li class="education"><a href="#education">Education</a></li>
+          <li class="languages"><a href="#languages">Languages</a></li>
           <li class="skills"><a href="#skills">Skills</a></li>
           <li class="projects"><a href="#projects">Projects</a></li>
           <li class="contact"><a href="#contact">Contact</a></li>
         </ul>
 
-        <a
-          href="/assets/CV-NicolasRubiales-ENG.pdf"
-          target="_blank"
-          class="text button secondary"
-          >Download CV</a
-        >
+        <div class="nav-actions">
+          <button id="theme-toggle" class="theme-toggle" aria-label="Toggle dark mode">
+            <svg class="icon-sun" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+              <circle cx="12" cy="12" r="5"/><line x1="12" y1="1" x2="12" y2="3"/><line x1="12" y1="21" x2="12" y2="23"/><line x1="4.22" y1="4.22" x2="5.64" y2="5.64"/><line x1="18.36" y1="18.36" x2="19.78" y2="19.78"/><line x1="1" y1="12" x2="3" y2="12"/><line x1="21" y1="12" x2="23" y2="12"/><line x1="4.22" y1="19.78" x2="5.64" y2="18.36"/><line x1="18.36" y1="5.64" x2="19.78" y2="4.22"/>
+            </svg>
+            <svg class="icon-moon" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+              <path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"/>
+            </svg>
+          </button>
+          <a
+            href="/assets/CV-NicolasRubiales-ENG.pdf"
+            target="_blank"
+            class="text button cv-btn"
+            >Download CV</a
+          >
+        </div>
       </nav>
     </header>
 
@@ -90,6 +101,7 @@
         <ul class="mobile-nav">
           <li class="experience"><a href="#experience">Experience</a></li>
           <li class="education"><a href="#education">Education</a></li>
+          <li class="languages"><a href="#languages">Languages</a></li>
           <li class="skills"><a href="#skills">Skills</a></li>
           <li class="projects"><a href="#projects">Projects</a></li>
           <li class="contact"><a href="#contact">Contact</a></li>
@@ -128,12 +140,36 @@
           <strong>Open-source</strong> advocate and
           <strong>Linux</strong> enthusiast.
         </p>
+
+        <blockquote class="hero-quote">"Keep it simple."</blockquote>
+
+        <div class="hero-stats">
+          <div class="hero-stat">
+            <span class="hero-stat-number">4+</span>
+            <span class="hero-stat-label">Years of experience</span>
+          </div>
+          <div class="hero-stat-divider"></div>
+          <div class="hero-stat">
+            <span class="hero-stat-number">2</span>
+            <span class="hero-stat-label">Active roles</span>
+          </div>
+          <div class="hero-stat-divider"></div>
+          <div class="hero-stat">
+            <span class="hero-stat-number">1</span>
+            <span class="hero-stat-label">Startup founded</span>
+          </div>
+          <div class="hero-stat-divider"></div>
+          <div class="hero-stat">
+            <span class="hero-stat-number">EU</span>
+            <span class="hero-stat-label">Erasmus+ intern</span>
+          </div>
+        </div>
       </main>
 
       <div class="main-content">
 
         <!-- Work Experience -->
-        <section id="experience" class="wc-section flow-content flex col">
+        <section id="experience" class="wc-section flow-content flex col fade-in">
           <h2 class="heading">Work Experience</h2>
 
           <div class="wc-list flow-content">
@@ -335,7 +371,7 @@
         </section>
 
         <!-- Education -->
-        <section id="education" class="wc-section flow-content flex col">
+        <section id="education" class="wc-section flow-content flex col fade-in">
           <h2 class="heading">Education</h2>
 
           <div class="wc-list education flow-content">
@@ -398,7 +434,7 @@
         </section>
 
         <!-- Certifications -->
-        <section id="certifications" class="certs-section flow-content flex col">
+        <section id="certifications" class="certs-section flow-content flex col fade-in">
           <h2 class="heading">Certifications</h2>
           <div class="certs-grid">
             <button class="cert-card" id="cert-cisco" aria-label="View Cisco certification">
@@ -416,8 +452,38 @@
           </div>
         </section>
 
+        <!-- Languages -->
+        <section id="languages" class="langs-section flow-content flex col fade-in">
+          <h2 class="heading">Languages</h2>
+          <div class="langs-grid">
+            <div class="lang-card">
+              <div class="lang-flag">🇪🇸</div>
+              <div class="lang-info">
+                <span class="lang-name">Español</span>
+                <span class="lang-level native">Native</span>
+              </div>
+            </div>
+            <div class="lang-card">
+              <div class="lang-flag">
+                <img src="assets/catalunya.svg" alt="Catalan flag" class="lang-flag-svg" />
+              </div>
+              <div class="lang-info">
+                <span class="lang-name">Català</span>
+                <span class="lang-level native">Native</span>
+              </div>
+            </div>
+            <div class="lang-card">
+              <div class="lang-flag">🇬🇧</div>
+              <div class="lang-info">
+                <span class="lang-name">English</span>
+                <span class="lang-level b2">B2 — Upper Intermediate</span>
+              </div>
+            </div>
+          </div>
+        </section>
+
         <!-- Skills Section -->
-        <section id="skills" class="skills-section flow-content flex col">
+        <section id="skills" class="skills-section flow-content flex col fade-in">
           <h2 class="heading">Skills</h2>
 
           <div class="skills-grid">
@@ -523,7 +589,7 @@
         </section>
 
         <!-- Projects Section -->
-        <section id="projects" class="projects-section flow-content flex col">
+        <section id="projects" class="projects-section flow-content flex col fade-in">
           <h2 class="heading">Projects</h2>
 
           <div class="projects-grid">
@@ -600,7 +666,7 @@
         </section>
 
         <!-- Contact -->
-        <section id="contact" class="contact-section flow-content">
+        <section id="contact" class="contact-section flow-content fade-in">
           <h2 class="heading">Contact</h2>
           <p class="contact">
             Get in touch or shoot me an email directly at
@@ -608,6 +674,35 @@
               ><strong>lasso@lasso.cat</strong></a
             >
           </p>
+
+          <div class="github-card" id="github-card">
+            <div class="github-card-header">
+              <svg width="16" height="16" viewBox="0 0 20 20" fill="none" xmlns="http://www.w3.org/2000/svg">
+                <path fill-rule="evenodd" clip-rule="evenodd" d="M9.99669 0.301758C7.62266 0.30299 5.32647 1.14383 3.51871 2.67392C1.71095 4.20401 0.509501 6.32358 0.129193 8.65362C-0.251115 10.9837 0.214513 13.3722 1.44283 15.3923C2.67114 17.4123 4.58204 18.932 6.83384 19.6797C7.33062 19.7719 7.51774 19.464 7.51774 19.2022C7.51774 18.9404 7.5078 18.1814 7.50449 17.3515C4.72251 17.9525 4.13465 16.1775 4.13465 16.1775C3.68093 15.025 3.02517 14.722 3.02517 14.722C2.11772 14.1062 3.09307 14.1177 3.09307 14.1177C4.09823 14.1885 4.62647 15.1435 4.62647 15.1435C5.51737 16.6633 6.96631 16.2236 7.53596 15.9668C7.62538 15.323 7.88536 14.885 8.17184 14.6364C5.94957 14.3861 3.61469 13.5332 3.61469 9.72316C3.60091 8.73505 3.96968 7.77948 4.64469 7.05415C4.54202 6.80388 4.19923 5.79291 4.74238 4.41971C4.74238 4.41971 5.58195 4.15298 7.49291 5.43891C9.13201 4.99322 10.8614 4.99322 12.5005 5.43891C14.4098 4.15298 15.2477 4.41971 15.2477 4.41971C15.7925 5.78962 15.4497 6.80059 15.347 7.05415C16.0242 7.77959 16.3937 8.73683 16.3787 9.72646C16.3787 13.5447 14.0388 14.3861 11.8133 14.6315C12.1709 14.941 12.4905 15.5453 12.4905 16.4739C12.4905 17.8043 12.4789 18.8745 12.4789 19.2022C12.4789 19.4673 12.6594 19.7768 13.1662 19.6797C15.4182 18.9319 17.3293 17.4119 18.5576 15.3916C19.7859 13.3712 20.2513 10.9823 19.8705 8.652C19.4898 6.32174 18.2878 4.20214 16.4794 2.67232C14.671 1.14249 12.3743 0.302209 10 0.301758H9.99669Z" fill="currentColor"/>
+              </svg>
+              <a href="https://github.com/laasso" target="_blank" rel="noopener noreferrer" class="github-username">laasso</a>
+            </div>
+            <div class="github-card-stats">
+              <div class="github-stat-item">
+                <span class="github-stat-value" id="gh-repos">—</span>
+                <span class="github-stat-label">Repos</span>
+              </div>
+              <div class="github-stat-item">
+                <span class="github-stat-value" id="gh-stars">—</span>
+                <span class="github-stat-label">Stars</span>
+              </div>
+              <div class="github-stat-item">
+                <span class="github-stat-value" id="gh-followers">—</span>
+                <span class="github-stat-label">Followers</span>
+              </div>
+            </div>
+            <div class="github-langs" id="github-langs"></div>
+            <div class="github-card-pgp">
+              <span class="github-card-pgp-label">PGP</span>
+              <code class="contact-pgp-key">0x72998150E3161B1D</code>
+            </div>
+          </div>
+
           <div class="line"></div>
           <div class="contact-meta flex justify-between items-center">
             <ul class="social-list">
@@ -765,6 +860,64 @@
       window.addEventListener("message", (event) => {
         console.log(event);
       });
+
+      // Dark mode
+      const themeToggle = document.getElementById("theme-toggle");
+      const savedTheme = localStorage.getItem("theme");
+      document.documentElement.setAttribute("data-theme", savedTheme === "dark" ? "dark" : "light");
+      if (themeToggle) {
+        themeToggle.addEventListener("click", () => {
+          const isDark = document.documentElement.getAttribute("data-theme") === "dark";
+          document.documentElement.setAttribute("data-theme", isDark ? "light" : "dark");
+          localStorage.setItem("theme", isDark ? "light" : "dark");
+        });
+      }
+
+      // Scroll animations
+      const observer = new IntersectionObserver((entries) => {
+        entries.forEach(entry => {
+          if (entry.isIntersecting) {
+            entry.target.classList.add("visible");
+            observer.unobserve(entry.target);
+          }
+        });
+      }, { threshold: 0.08 });
+      document.querySelectorAll(".fade-in").forEach(el => observer.observe(el));
+
+      // GitHub stats
+      async function loadGitHubStats() {
+        try {
+          const [userRes, reposRes] = await Promise.all([
+            fetch("https://api.github.com/users/laasso"),
+            fetch("https://api.github.com/users/laasso/repos?per_page=100")
+          ]);
+          if (!userRes.ok || !reposRes.ok) return;
+
+          const user = await userRes.json();
+          const repos = await reposRes.json();
+
+          // Basic stats
+          document.getElementById("gh-repos").textContent = user.public_repos;
+          document.getElementById("gh-followers").textContent = user.followers;
+          const totalStars = repos.reduce((acc, r) => acc + r.stargazers_count, 0);
+          document.getElementById("gh-stars").textContent = totalStars;
+
+          // Top languages
+          const langCount = {};
+          repos.forEach(r => { if (r.language) langCount[r.language] = (langCount[r.language] || 0) + 1; });
+          const topLangs = Object.entries(langCount).sort((a, b) => b[1] - a[1]).slice(0, 5);
+          const langColors = { Python: "#3572A5", Shell: "#89e051", JavaScript: "#f1e05a", TypeScript: "#3178c6", Go: "#00ADD8", Rust: "#dea584", HTML: "#e34c26", CSS: "#563d7c", Java: "#b07219", "C++": "#f34b7d" };
+          const langsEl = document.getElementById("github-langs");
+          if (langsEl && topLangs.length) {
+            langsEl.innerHTML = topLangs.map(([lang]) =>
+              `<span class="github-lang-tag" style="--lang-color:${langColors[lang] || "#414141"}">${lang}</span>`
+            ).join("");
+          }
+        } catch (e) {
+          // silently fail — widget just stays with dashes
+        }
+      }
+      loadGitHubStats();
 
       // Certificate modal
       const certModal = document.getElementById("cert-modal");
