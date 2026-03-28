@@ -346,8 +346,10 @@
               <div>
                 <div class="wc-info">
                   <span class="text year">Sep 2025 - Mar 2026</span>
-                  <img class="company-logo" src="assets/itb.png" alt="Institut Tecnològic de Barcelona" />
-                  <h3 class="text name">Institut Tecnològic de Barcelona (ITB)</h3>
+                  <div class="wc-name-logo">
+                    <h3 class="text name">Institut Tecnològic de Barcelona (ITB)</h3>
+                    <img class="company-logo" src="assets/itb.png" alt="Institut Tecnològic de Barcelona" />
+                  </div>
                   <span class="text role">Cybersecurity Specialisation (CETI) — Advanced Level</span>
                 </div>
                 <ul class="wc-responsibilities">
@@ -365,8 +367,10 @@
               <div>
                 <div class="wc-info">
                   <span class="text year">Sep 2023 - Jun 2025</span>
-                  <img class="company-logo" src="assets/manuelvazquezmontalban.png" alt="INS Manuel Vázquez Montalbán" />
-                  <h3 class="text name">INS Manuel Vázquez Montalbán</h3>
+                  <div class="wc-name-logo">
+                    <h3 class="text name">INS Manuel Vázquez Montalbán</h3>
+                    <img class="company-logo" src="assets/manuelvazquezmontalban.png" alt="INS Manuel Vázquez Montalbán" />
+                  </div>
                   <span class="text role">ASIR — Advanced Degree in Systems and Networks Administration</span>
                 </div>
                 <div class="active-circle"></div>
@@ -379,8 +383,10 @@
               <div>
                 <div class="wc-info">
                   <span class="text year">Sep 2021 - Jun 2023</span>
-                  <img class="company-logo" src="assets/manuelvazquezmontalban.png" alt="INS Manuel Vázquez Montalbán" />
-                  <h3 class="text name">INS Manuel Vázquez Montalbán</h3>
+                  <div class="wc-name-logo">
+                    <h3 class="text name">INS Manuel Vázquez Montalbán</h3>
+                    <img class="company-logo" src="assets/manuelvazquezmontalban.png" alt="INS Manuel Vázquez Montalbán" />
+                  </div>
                   <span class="text role">SMX — Medium Degree in Microcomputer Systems and Networks</span>
                   <span class="text grade">Grade: 8.9 / 10</span>
                 </div>
@@ -395,7 +401,7 @@
         <section id="certifications" class="certs-section flow-content flex col">
           <h2 class="heading">Certifications</h2>
           <div class="certs-grid">
-            <div class="cert-card">
+            <button class="cert-card" id="cert-cisco" aria-label="View Cisco certification">
               <div class="cert-icon">
                 <svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
                   <path d="M12 2L15.09 8.26L22 9.27L17 14.14L18.18 21.02L12 17.77L5.82 21.02L7 14.14L2 9.27L8.91 8.26L12 2Z" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
@@ -403,10 +409,10 @@
               </div>
               <div class="cert-info">
                 <h3 class="cert-title">Junior Cybersecurity Analyst Career Path</h3>
-                <span class="cert-issuer">Cisco</span>
-                <span class="cert-date">Feb 2026</span>
+                <span class="cert-issuer">Cisco · Feb 2026</span>
+                <span class="cert-hint">Click to view certificate</span>
               </div>
-            </div>
+            </button>
           </div>
         </section>
 
@@ -665,6 +671,23 @@
         </section>
       </div>
     </div>
+    <!-- Certificate Modal -->
+    <div class="cert-modal-overlay" id="cert-modal" role="dialog" aria-modal="true" aria-label="Cisco certification">
+      <div class="cert-modal">
+        <div class="cert-modal-header">
+          <span class="cert-modal-title">Junior Cybersecurity Analyst Career Path — Cisco</span>
+          <button class="cert-modal-close" id="cert-modal-close" aria-label="Close">
+            <svg width="20" height="20" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+              <path d="M18 6L6 18M6 6l12 12" stroke="currentColor" stroke-width="2" stroke-linecap="round"/>
+            </svg>
+          </button>
+        </div>
+        <div class="cert-modal-body">
+          <iframe src="assets/cyberanalystpath.pdf" title="Cisco Junior Cybersecurity Analyst Certificate"></iframe>
+        </div>
+      </div>
+    </div>
+
     <!-- Script -->
     <script>
       const hamburger = document.getElementById("hamburger");
@@ -742,6 +765,37 @@
       window.addEventListener("message", (event) => {
         console.log(event);
       });
+
+      // Certificate modal
+      const certModal = document.getElementById("cert-modal");
+      const certBtn = document.getElementById("cert-cisco");
+      const certClose = document.getElementById("cert-modal-close");
+
+      if (certBtn && certModal) {
+        certBtn.addEventListener("click", () => {
+          certModal.classList.add("active");
+          document.body.style.overflow = "hidden";
+        });
+
+        certClose.addEventListener("click", () => {
+          certModal.classList.remove("active");
+          document.body.style.overflow = "";
+        });
+
+        certModal.addEventListener("click", (e) => {
+          if (e.target === certModal) {
+            certModal.classList.remove("active");
+            document.body.style.overflow = "";
+          }
+        });
+
+        document.addEventListener("keydown", (e) => {
+          if (e.key === "Escape" && certModal.classList.contains("active")) {
+            certModal.classList.remove("active");
+            document.body.style.overflow = "";
+          }
+        });
+      }
     </script>
 
     <script type="module">

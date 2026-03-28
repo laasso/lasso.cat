@@ -1,25 +1,22 @@
 name: Deploy to FTP
-
 on:
-  push:
-    branches:
-      - main  # Change this to your main branch name
+  workflow_dispatch:
 
 jobs:
   ftp-deploy:
     name: FTP Deploy
     runs-on: ubuntu-latest
-
     steps:
       - name: Checkout repository
         uses: actions/checkout@v2
 
       - name: Upload to FTP server
-        uses: SamKirkland/FTP-Deploy-Action@4.3.0
+        uses: SamKirkland/FTP-Deploy-Action@v4.3.3
         with:
-          server: ftp.lasso.cat  # Replace with your FTP server address
+          server: ftp.lasso.cat
           username: ${{ secrets.FTP_USERNAME }}
           password: ${{ secrets.FTP_PASSWORD }}
-          local-dir: ./public_html/  # Directory to upload, relative to the root of the repository
-          server-dir: /domains/lasso.cat/public_html/  # Destination directory on the FTP server
-          protocol: ftps  # Use 'ftps' if you need secure FTP
+          local-dir: ./public_html/
+          server-dir: /domains/lasso.cat/public_html/
+          protocol: ftps
+          security: loose
